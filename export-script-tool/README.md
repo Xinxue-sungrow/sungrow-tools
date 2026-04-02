@@ -62,5 +62,3 @@ The CSV file will be automatically downloaded
 
 ---
 
-## 📁 File Structure
-
