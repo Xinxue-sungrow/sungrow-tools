@@ -1,0 +1,70 @@
+{
+  "fault": "GFDI Protection Fault",
+  "description": "The inverter stops due to GFDI protection triggered by excessive negative-to-ground voltage.",
+  "steps": [
+    {
+      "id": 1,
+      "title": "Check Parameter Settings",
+      "description": "In the UMCG interface, verify that the negative grounding mode is set to 'Controllable'. Check that the negative-to-ground voltage protection threshold and protection time are correctly configured.",
+      "question": "Are the parameter settings correct? (yes / no)",
+      "yes": 2,
+      "no": "Adjust the parameter settings and recheck the system."
+    },
+    {
+      "id": 2,
+      "title": "Check Fuse FU15",
+      "description": "With the inverter powered off, use a multimeter in continuity mode to check whether fuse FU15 is intact.",
+      "question": "Is fuse FU15 functioning properly? (yes / no)",
+      "yes": 3,
+      "no": "Replace fuse FU15."
+    },
+    {
+      "id": 3,
+      "title": "Check Contactor KM5",
+      "description": "Inspect the KM5 contactor in the negative grounding protection circuit. Confirm whether it is properly energized (pulled in).",
+      "question": "Is the KM5 contactor operating correctly? (yes / no)",
+      "yes": 4,
+      "no": "Replace the KM5 contactor."
+    },
+    {
+      "id": 4,
+      "title": "Check Resistor R3",
+      "description": "With the inverter powered off, measure the resistance of R3 using a multimeter. The expected value is approximately 1kΩ.",
+      "question": "Is the resistance of R3 within the expected range (~1kΩ)? (yes / no)",
+      "yes": 5,
+      "no": "Replace resistor R3."
+    },
+    {
+      "id": 5,
+      "title": "Check PL1 Board Wiring",
+      "description": "Inspect the wiring connections on the PL1 board. Ensure that all cables are properly connected and not loose or abnormal.",
+      "question": "Is the PL1 board wiring normal? (yes / no)",
+      "yes": 6,
+      "no": "Fix the wiring issues on the PL1 board."
+    },
+    {
+      "id": 6,
+      "title": "Replace or Swap PL Board",
+      "description": "If a spare PL board is available, replace it and observe whether the inverter returns to normal operation. Alternatively, swap with a working inverter for verification.",
+      "question": "Does the inverter recover after replacing/swapping the PL board? (yes / no)",
+      "yes": "The original PL board is faulty and should be replaced.",
+      "no": 7
+    },
+    {
+      "id": 7,
+      "title": "Check DC Side Voltage to Ground",
+      "description": "Turn off the DC switch and measure the voltage from both positive and negative terminals to ground. The voltage should drop from approximately 650V.",
+      "question": "Is the DC voltage to ground within the normal range? (yes / no)",
+      "yes": 8,
+      "no": "Isolate the fault by disconnecting combiner boxes or checking individual DC strings."
+    },
+    {
+      "id": 8,
+      "title": "Check AC Side Grounding",
+      "description": "Check whether there is any unintended grounding on the AC side (e.g., reactor grounding).",
+      "question": "Is there any abnormal grounding on the AC side? (yes / no)",
+      "yes": "Locate and fix the grounding issue.",
+      "no": "Escalate the issue to advanced technical support."
+    }
+  ]
+}
